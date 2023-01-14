@@ -16,6 +16,5 @@ jobs:
           image: mohamadmokhtar/library
           tags: sleep
           registry: docker.io
-          dockerfile: Dockerfile
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
