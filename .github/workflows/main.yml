@@ -8,8 +8,9 @@ on:
 
 jobs:
   deploy:
+    runs-on: ubuntu-22.04
     steps:
-      - uses: mr-smithers-excellent/docker-build-push@v5
+      - uses: mr-smithers-excellent/docker-build-push@v5.8
         name: Build & push Docker image
         with:
           image: mohamadmokhtar/library
