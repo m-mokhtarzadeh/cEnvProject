@@ -1,10 +1,20 @@
-steps:
-  - uses: mr-smithers-excellent/docker-build-push@v5
-    name: Build & push Docker image
-    with:
-      image: mohamadmokhtar/library
-      tags: sleep
-      registry: docker.io
-      dockerfile: Dockerfile
-      username: ${{ secrets.DOCKER_USERNAME }}
-      password: ${{ secrets.DOCKER_PASSWORD }}
+name: build docker
+
+on:
+  push:
+    branches:
+      - main  # Set a branch that will trigger a deployment
+  pull_request:
+
+jobs:
+  deploy:
+    steps:
+      - uses: mr-smithers-excellent/docker-build-push@v5
+        name: Build & push Docker image
+        with:
+          image: mohamadmokhtar/library
+          tags: sleep
+          registry: docker.io
+          dockerfile: Dockerfile
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
